@@ -1,0 +1,33 @@
+<!--a pageValue lokális változóba tesszük a választott éréket-->
+<!--change meg egy esemény ami követi a változásokat-->
+
+<mat-nav-list>
+    <a mat-list-item routerLink="/main">
+        <!--<mat-icon>main</mat-icon>-->
+        <span>Főoldal</span>
+    </a>
+    <a mat-list-item routerLink="/gallery">
+        <!--<mat-icon>gallery</mat-icon>-->
+        <span>Túra útvonalaink</span>
+    </a>
+    <a mat-list-item routerLink="/contact">
+        <!--<mat-icon>contact</mat-icon>-->
+        <span>Túra foglalás</span>
+    </a>
+    <a mat-list-item routerLink="/login">
+        <!--<mat-icon>login</mat-icon>-->
+        <span>Bejelentkezés</span>
+    </a>
+    <a mat-list-item routerLink="/signup">
+        <!--<mat-icon>signup</mat-icon>-->
+        <span>Regisztráció</span>
+    </a>
+</mat-nav-list>
+
+<!--<select [(ngModel)]="currentPage" (change)="menuSwitch()"> 
+    <option class="opt" value="main">Főoldal</option>
+    <option class="opt" value="gallery">Túra útvonalaink</option>
+    <option class="opt" value="contact">Túra foglalás</option>
+    <option class="opt" value="login">Bejelentkezés</option>
+    <option class="opt" value="signup">Regisztráció</option>
+</select>-->

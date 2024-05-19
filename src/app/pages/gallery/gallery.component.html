@@ -1,0 +1,29 @@
+<app-list [galleryObjectInput]="galleryObject" (imageObjectEmitter)="loadImage($event)"></app-list>
+<app-viewer [imageInput]="chosenImage"></app-viewer>
+
+<!--<div>
+    <select (change)="reload()" [(ngModel)]="chosenImage">   kátirányú adatösszekötés
+        <option *ngFor="let obj of galleryObject" [ngValue]="obj">{{obj.id}}</option>
+        
+        <option value="image-1">Kép-1</option>
+        <option value="image-2">Kép-2</option>
+        <option value="image-3">Kép-3</option>
+        <option value="image-4">Kép-4</option>
+        <option value="image-5">Kép-5</option>
+        
+    </select>
+
+    <div class="container" *ngIf="chosenImage">
+        <img class="galleryImage" *ngIf="chosenImage">
+        <div class="break"></div>
+        <div>{{chosenImage.user_name}}</div>
+        <div class="break"></div>
+        <div>{{chosenImage.user_url}}</div>
+        <div class="break"></div>
+        <div>{{chosenImage.photo_url}}</div>
+        <span>{{chosenImage.value}}</span>
+        <img class="galleryImage" [src]="'assets/' + chosenImage.id + '.jpg'"/>  input direktíva
+    </div>
+</div>-->
+
+ 

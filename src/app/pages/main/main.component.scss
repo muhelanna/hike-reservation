@@ -1,0 +1,30 @@
+div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #386641;
+}
+
+h1 {
+    padding-top: 30px;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+    text-justify: inter-word;
+    color: #386641;
+    font-size: 20px;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+img{
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

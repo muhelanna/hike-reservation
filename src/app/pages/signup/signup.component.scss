@@ -1,0 +1,50 @@
+.contain{
+    height: 80vh;
+}
+
+.main-text{
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 60%;
+  color: #F2E8CF;
+  background-color: #386641;
+  border-radius: 20px;
+}
+
+.break {
+    flex-basis: 20px;
+    height: 0;
+}
+
+p, .div-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+    text-justify: inter-word;
+    color: #386641;
+    font-size: 30px;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+
+button {
+    color: #F2E8CF;
+    font-size: 30px;
+    background-color: #BC4749;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 10px;
+}
+
+input{
+    background-color: #F2E8CF;
+    border-radius: 5px;
+    height: 25px;
+}
+

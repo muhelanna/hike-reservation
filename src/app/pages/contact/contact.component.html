@@ -1,0 +1,68 @@
+<div class="contain">
+    <div class="div-flex">
+        <br><br>
+        <div class="main-text">
+            <div class="break"></div><br>
+            <form [formGroup]="railReservationForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <label for="name">Teljes név: </label>
+                    <input size="25" type="text" formControlName="name"/>
+                </div>
+                <div class="break"></div><br>
+                <div formGroupName="rail">
+                    <div>
+                        <label for="railName">Túra neve: </label>
+                        <input size="25" type="text" formControlName="railName"/>
+                    </div>
+                    <div class="break"></div><br>
+                    <div>
+                        <label for="date">Túra időpontja: </label>
+                        <input size="25" type="date" formControlName="date"/>
+                    </div>
+                </div>
+                <div class="break"></div><br>
+                <div>
+                    <label for="comment">Megjegyzés: </label>
+                    <textarea type="text" formControlName="comment"></textarea>
+                </div>
+                <div class="break"></div><br>
+                <div>
+                    <label for="check">*Elfogadom a feltételeket: </label>
+                    <input class="checkbox" size="25" type="checkbox" formControlName="check"/>
+                </div>
+                <div class="break"></div><br>
+                <div>
+                    <button type="submit">Foglalás</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>    
+</div>
+
+<br><br>
+<div class="important">
+    <h3>*Fontos Információk Túrafoglalás Előtt</h3>
+    <p class="important">
+        
+
+        Kedves Túrázók!<br><br>
+        
+        Mielőtt foglalnátok, kérjük, olvassátok el az alábbiakat:<br><br>
+        
+        <i>Saját felelősség:</i> A túrán mindenki saját felelősségére vesz részt. Kérjük, mérlegeljétek saját egészségi állapototokat és képességeiteket.<br><br>
+        
+        <i>Egészségi állapot:</i> Csak akkor vegyetek részt, ha megfelelő egészségi állapotban vagytok. Ha bármilyen egészségügyi problémátok van, előzetesen konzultáljatok orvosotokkal.<br><br>
+        
+        <i>Alkohol- és drogtilalom:</i> A túrán ittas vagy bódult állapotban nem lehet részt venni. Az ilyen állapotban lévő személyeket kizárjuk a túrából.<br><br>
+        
+        <i>Felszerelés és ruházat:</i> Viseljetek megfelelő ruházatot és lábbelit. Gondoskodjatok elegendő élelmiszerről és ivóvízről.<br><br>
+        
+        <i>Balesetbiztosítás:</i> Ajánlott érvényes balesetbiztosítással rendelkezni, ami fedezi a túrázás során esetlegesen bekövetkező baleseteket.<br><br>
+        
+        <i>Környezetvédelem:</i> Ne szemeteljetek, és tartsátok tiszteletben a természetet.<br><br>
+        
+        <i>Túravezető utasításai:</i> Kövessétek a túravezető utasításait. Az utasításokat be nem tartókat kizárhatjuk a túrából.<br><br>
+        
+        Köszönjük a megértést és az együttműködést!</p>
+</div>

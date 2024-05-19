@@ -1,0 +1,23 @@
+<div class="contain">
+    <div></div>
+    <br><br>
+    <div class="main-text">
+        <br>
+        <span>
+            <label for="username">Felhasználónév: </label>
+            <input size="25" type="text" [formControl]="username"/>
+        </span>
+        <div class="break"></div><br>
+        <span>
+            <label for="password">Jelszó: </label>
+            <input size="25" type="password" [formControl]="password"/>
+        </span>
+        <div class="break"></div><br>
+        <span>
+            <button (click)="login()">Bejelentkezés</button>
+            <button [routerLink]="'/signup'">Regisztráció</button>
+        </span>
+        <br>
+    </div>
+    
+</div>

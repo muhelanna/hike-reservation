@@ -1,0 +1,45 @@
+<div class="container" *ngIf="imageInput">   <!--attribútum direktíva-->
+    <img class="galleryImage" [src]="'assets/' + imageInput.id + '.jpg'"/>  <!--input direktíva--> 
+    <div class="break"></div>
+    <h1 class="fg">{{imageInput.route_name}}</h1>
+    <div class="break"></div>
+    <p>{{imageInput.route_description}}</p>
+    <div class="break"></div>
+
+    <div class="break"></div>
+
+    <div class="tablediv" *ngIf="comments.length">  <!--attribútum direktíva-->
+        <table>
+            <tr>
+                <th>Felhasználó</th>
+                <th>Komment</th>
+                <th>Dátum</th>
+            </tr>
+            <tr *ngFor="let comment of comments; let i = index;" [ngClass]="i % 2 === 0 ? 'table-header-even' : 'table-header-odd'">
+            <!--<tr *ngFor="let comment of comments; let i = index;" [ngStyle]="{'background-color' : i % 2 === 0 ? 'darkcyan' : 'cyan'}">-->                
+                <td>{{comment.username | uppercase}}</td>
+                <td>{{comment.comment}}</td>
+                <td>{{comment.date | dateFormat}}</td>  <!--date:'yyyy-MM-dd'-->
+            </tr>
+        </table>
+    </div>
+
+    <div class="break"></div>
+    <h2>Hozzászólás írása: </h2>
+    <br>
+    <div class="break"></div>
+    <br>
+    <div><label class="username" for="username">Felhasználónév: </label>
+        <input type="text" [(ngModel)]="commentObject['username']" />   <!--attribútum direktíva-->
+    </div>
+    <div class="break"></div>
+    <br>
+    <div>
+        <textarea rows="10" cols="50" [(ngModel)]="commentObject['comment']"></textarea>
+    </div>
+    <div class="break"></div>
+    <br>
+    <div>
+        <button (click)="addComment()">Hozzáadás</button>
+    </div>
+</div>
