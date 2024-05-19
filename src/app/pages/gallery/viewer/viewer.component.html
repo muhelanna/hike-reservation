@@ -1,5 +1,5 @@
-<div class="container" *ngIf="imageInput">   <!--attribútum direktíva-->
-    <img class="galleryImage" [src]="'assets/' + imageInput.id + '.jpg'"/>  <!--input direktíva--> 
+<!--<div class="container" *ngIf="imageInput">   
+    <img class="galleryImage" [src]="'assets/' + imageInput.id + '.jpg'"/>  
     <div class="break"></div>
     <h1 class="fg">{{imageInput.route_name}}</h1>
     <div class="break"></div>
@@ -8,7 +8,7 @@
 
     <div class="break"></div>
 
-    <div class="tablediv" *ngIf="comments.length">  <!--attribútum direktíva-->
+    <div class="tablediv" *ngIf="comments.length">  
         <table>
             <tr>
                 <th>Felhasználó</th>
@@ -16,10 +16,9 @@
                 <th>Dátum</th>
             </tr>
             <tr *ngFor="let comment of comments; let i = index;" [ngClass]="i % 2 === 0 ? 'table-header-even' : 'table-header-odd'">
-            <!--<tr *ngFor="let comment of comments; let i = index;" [ngStyle]="{'background-color' : i % 2 === 0 ? 'darkcyan' : 'cyan'}">-->                
                 <td>{{comment.username | uppercase}}</td>
                 <td>{{comment.comment}}</td>
-                <td>{{comment.date | dateFormat}}</td>  <!--date:'yyyy-MM-dd'-->
+                <td>{{comment.date | dateFormat}}</td> 
             </tr>
         </table>
     </div>
@@ -30,8 +29,7 @@
     <div class="break"></div>
     <br>
     <div><label class="username" for="username">Felhasználónév: </label>
-        <input type="text" [(ngModel)]="commentObject['username']" />   <!--attribútum direktíva-->
-    </div>
+        <input type="text" [(ngModel)]="commentObject['username']" />  
     <div class="break"></div>
     <br>
     <div>
@@ -42,4 +40,80 @@
     <div>
         <button (click)="addComment()">Hozzáadás</button>
     </div>
+</div>-->
+
+
+
+
+
+
+
+
+
+
+<div class="div-card" *ngIf="imageInput">   <!--attribútum direktíva-->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{imageInput.route_name}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <img class="galleryImage" [src]="'assets/' + imageInput.id + '.jpg'"/>  <!--input direktíva--> 
+            <div class="break"></div>
+            <h1 class="fg">{{imageInput.route_name}}</h1>
+            <div class="break"></div>
+            <p>{{imageInput.route_description}}</p>
+            <div class="break"></div>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <br>
+            <form>
+                <div class="break"></div>
+                <br>
+                <div>
+                    <mat-form-field>
+                        <mat-label class="username" for="username">Felhasználónév: </mat-label>
+                        <input matInput type="text" [(ngModel)]="commentObject['username']" />   <!--attribútum direktíva-->
+                    </mat-form-field>
+                </div>
+                <div class="break"></div>
+                <br>
+                <div>
+                    <mat-form-field>
+                        <mat-label for="comment">Hozzászólás írása: </mat-label>
+                        <textarea matInput rows="10" cols="50" [(ngModel)]="commentObject['comment']"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="break"></div>
+                <br>
+                <div>
+                    <button mat-raised-button color="primary" (click)="addComment()">Hozzáadás</button>
+                </div>
+                </form>
+        </mat-card-actions>
+    </mat-card>
+    
+    
+
+    <!--<div class="break"></div>
+
+    <div class="tablediv" *ngIf="comments.length">  
+        <table>
+            <tr>
+                <th>Felhasználó</th>
+                <th>Komment</th>
+                <th>Dátum</th>
+            </tr>
+            <tr *ngFor="let comment of comments; let i = index;" [ngClass]="i % 2 === 0 ? 'table-header-even' : 'table-header-odd'">
+            <tr *ngFor="let comment of comments; let i = index;" [ngStyle]="{'background-color' : i % 2 === 0 ? 'darkcyan' : 'cyan'}">               
+                <td>{{comment.username | uppercase}}</td>
+                <td>{{comment.comment}}</td>
+                <td>{{comment.date | dateFormat}}</td>  
+            </tr>
+        </table>
+    </div>
+
+    <div class="break"></div>-->
+    
 </div>

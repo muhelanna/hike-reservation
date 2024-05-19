@@ -31,4 +31,10 @@ export class AppComponent implements OnInit {
   onToggleSidenav(sidenav: MatSidenav) {
     sidenav.toggle();
   }
+
+  onClose(event: any, sidenav: MatSidenav) {
+    if (event === true) {
+      sidenav.close();
+    }
+  }
 }

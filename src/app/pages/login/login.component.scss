@@ -13,7 +13,7 @@
   height: 60%;
   color: #F2E8CF;
   background-color: #386641;
-  border-radius: 20px;
+  align-items: center;
 }
 
 .break {
@@ -48,3 +48,6 @@ input{
     height: 25px;
 }
 
+mat-form-field {
+    width: 50%;
+}

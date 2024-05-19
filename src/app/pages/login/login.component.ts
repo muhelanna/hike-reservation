@@ -14,6 +14,8 @@ export class LoginComponent {
   username = new FormControl('');
   password = new FormControl('');
 
+  loading: boolean = false;
+
   constructor(private router: Router, private loadingService: FakeLoadingService) {}
 
   login(){

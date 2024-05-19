@@ -1,21 +1,25 @@
+<span *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</span>
+
 <div class="contain">
     <div></div>
     <br><br>
     <div class="main-text">
         <br>
-        <span>
-            <label for="username">Felhasználónév: </label>
-            <input size="25" type="text" [formControl]="username"/>
-        </span>
+        <mat-form-field>
+            <mat-label for="username">Felhasználónév: </mat-label>
+            <input matInput size="25" type="text" [formControl]="username"/>
+        </mat-form-field>
+        <div class="break"></div><br>
+        <mat-form-field>
+            <mat-label for="password">Jelszó: </mat-label>
+            <input matInput size="25" type="password" [formControl]="password"/>
+        </mat-form-field>
         <div class="break"></div><br>
         <span>
-            <label for="password">Jelszó: </label>
-            <input size="25" type="password" [formControl]="password"/>
-        </span>
-        <div class="break"></div><br>
-        <span>
-            <button (click)="login()">Bejelentkezés</button>
-            <button [routerLink]="'/signup'">Regisztráció</button>
+            <span><button mat-raised-button color="primary" (click)="login()">Bejelentkezés</button></span>
+            <span><button mat-raised-button color="primary" [routerLink]="'/signup'">Regisztráció</button></span>
         </span>
         <br>
     </div>
