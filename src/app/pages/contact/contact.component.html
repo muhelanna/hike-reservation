@@ -31,7 +31,7 @@
   
     <h2>Reservations</h2>
     <ul>
-      <li *ngFor="let reservation of reservations">
+      <li *ngFor="let reservation of reservations$ | async">
         <strong>Name:</strong> {{ reservation.name }}<br>
         <strong>Rail Name:</strong> {{ reservation.rail.railName }}<br>
         <strong>Date:</strong> {{ reservation.rail.date }}<br>
@@ -43,30 +43,19 @@
       </li>
     </ul>
   </div>
-
-<br><br>
-<div class="important">
+  
+  <div class="important">
     <h3>*Fontos Információk Túrafoglalás Előtt</h3>
-    <p class="important">
-        
-
-        Kedves Túrázók!<br><br>
-        
-        Mielőtt foglalnátok, kérjük, olvassátok el az alábbiakat:<br><br>
-        
-        <i>Saját felelősség:</i> A túrán mindenki saját felelősségére vesz részt. Kérjük, mérlegeljétek saját egészségi állapototokat és képességeiteket.<br><br>
-        
-        <i>Egészségi állapot:</i> Csak akkor vegyetek részt, ha megfelelő egészségi állapotban vagytok. Ha bármilyen egészségügyi problémátok van, előzetesen konzultáljatok orvosotokkal.<br><br>
-        
-        <i>Alkohol- és drogtilalom:</i> A túrán ittas vagy bódult állapotban nem lehet részt venni. Az ilyen állapotban lévő személyeket kizárjuk a túrából.<br><br>
-        
-        <i>Felszerelés és ruházat:</i> Viseljetek megfelelő ruházatot és lábbelit. Gondoskodjatok elegendő élelmiszerről és ivóvízről.<br><br>
-        
-        <i>Balesetbiztosítás:</i> Ajánlott érvényes balesetbiztosítással rendelkezni, ami fedezi a túrázás során esetlegesen bekövetkező baleseteket.<br><br>
-        
-        <i>Környezetvédelem:</i> Ne szemeteljetek, és tartsátok tiszteletben a természetet.<br><br>
-        
-        <i>Túravezető utasításai:</i> Kövessétek a túravezető utasításait. Az utasításokat be nem tartókat kizárhatjuk a túrából.<br><br>
-        
-        Köszönjük a megértést és az együttműködést!</p>
-</div>
+    <p>
+      Kedves Túrázók!<br><br>
+      Mielőtt foglalnátok, kérjük, olvassátok el az alábbiakat:<br><br>
+      <i>Saját felelősség:</i> A túrán mindenki saját felelősségére vesz részt. Kérjük, mérlegeljétek saját egészségi állapototokat és képességeiteiteket.<br><br>
+      <i>Egészségi állapot:</i> Csak akkor vegyetek részt, ha megfelelő egészségi állapotban vagytok. Ha bármilyen egészségügyi problémátok van, előzetesen konzultáljatok orvosotokkal.<br><br>
+      <i>Alkohol- és drogtilalom:</i> A túrán ittas vagy bódult állapotban nem lehet részt venni. Az ilyen állapotban lévő személyeket kizárjuk a túrából.<br><br>
+      <i>Felszerelés és ruházat:</i> Viseljetek megfelelő ruházatot és lábbelit. Gondoskodjatok elegendő élelmiszerről és ivóvízről.<br><br>
+      <i>Balesetbiztosítás:</i> Ajánlott érvényes balesetbiztosítással rendelkezni, ami fedezi a túrázás során esetlegesen bekövetkező baleseteket.<br><br>
+      <i>Környezetvédelem:</i> Ne szemeteljetek, és tartsátok tiszteletben a természetet.<br><br>
+      <i>Túravezető utasításai:</i> Kövessétek a túravezető utasításait. Az utasításokat be nem tartókat kizárhatjuk a túrából.<br><br>
+      Köszönjük a megértést és az együttműködést!
+    </p>
+  </div>
