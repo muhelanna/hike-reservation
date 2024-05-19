@@ -1,6 +1,3 @@
-<!--output direktíva sima zárójellel: (selectedPage)-->
-<!--ebben definiálunk egy gfv.-t, ami meghatározza mi történjen a direktíva hívásakor: (selectedPage)="changePage($event)"-->
-<!--event változó tartalmazza a vissza küldendő stringet-->
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page" (onCloseSidenav)="onClose($event, sidenav)"></app-menu> 
@@ -27,43 +24,3 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-
-<!--<app-menu></app-menu>
-
-<div class="main_component" *ngIf="page ==='main'">
-  <app-main></app-main>
-</div>
-<app-gallery *ngIf="page ==='gallery'"></app-gallery>
-<app-contact *ngIf="page ==='contact'"><h1>This is the contact page.</h1></app-contact>
-<router-outlet />-->
-
-
-<!--
-<ng-container [ngSwitch]="page">
-  
-  <ng-container *ngSwitchCase="'main'"> 
-    <div class="main_component">
-      <app-main></app-main>
-    </div>
-  </ng-container>
-
- 
-  <ng-container *ngSwitchCase="'gallery'">
-    <app-gallery></app-gallery>
-  </ng-container>
-
-   
-  <ng-container *ngSwitchCase="'contact'">
-    <app-contact>
-      <h1>This is the contact page.</h1>
-    </app-contact>
-  </ng-container>
-
-   
-  <ng-container *ngSwitchDefault="">
-    <app-contact>
-      <h1>Page not found...</h1>
-    </app-contact>
-  </ng-container>
-</ng-container>
--->

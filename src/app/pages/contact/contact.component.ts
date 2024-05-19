@@ -1,46 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
-
-export interface Reservations {
-  name: string;
-  railName: string;
-  date: string;
-  comment: string;
-  check: boolean;
-}
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'] // Corrected to styleUrls
+  styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit { // Implement OnInit
+export class ContactComponent implements OnInit {
 
-  railReservationForm: FormGroup; // Declare the form group
-  reservations: Reservations[] = []; // Declare the reservations property
-
-  constructor(
-    private afs: AngularFirestore,
-    private storage: AngularFireStorage
-  ) {
-    // Initialize the form group
-    this.railReservationForm = new FormGroup({
-      name: new FormControl(''),
+  railReservationForm = new FormGroup({
+    name: new FormControl(''),
+    rail: new FormGroup({
       railName: new FormControl(''),
       date: new FormControl(''),
-      comment: new FormControl(''),
-      check: new FormControl(''),
-    });
-  }
+    }),
+    comment: new FormControl(''),
+    check: new FormControl(false),
+  });
+
+  reservations: any[] = [];
+
+  constructor(private afs: AngularFirestore) {}
 
   ngOnInit() {
     this.fetchReservations();
   }
 
+  onSubmit() {
+    const reservation = this.railReservationForm.value;
+    this.afs.collection('reservations').add(reservation)
+      .then(() => {
+        console.log('Reservation added successfully');
+        this.fetchReservations();
+      })
+      .catch(error => {
+        console.error('Error adding reservation: ', error);
+      });
+    this.railReservationForm.reset();
+  }
+
   fetchReservations() {
-    this.afs.collection<Reservations>('reservations').valueChanges().subscribe(
+    this.afs.collection('reservations').valueChanges().subscribe(
       reservations => {
         this.reservations = reservations;
       },
@@ -50,20 +51,37 @@ export class ContactComponent implements OnInit { // Implement OnInit
     );
   }
 
-  items: Reservations[] = [];
-
-  onSubmit() {
-    const reservation = this.railReservationForm.value;
-    this.afs.collection('reservations').add(reservation)
-      .then(() => {
-        console.log('Reservation added successfully');
+  updateReservation(name: string, updatedData: any) {
+    this.afs.collection('reservations', ref => ref.where('name', '==', name))
+      .get()
+      .subscribe(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          this.afs.collection('reservations').doc(doc.id).update(updatedData)
+            .then(() => {
+              console.log('Reservation updated successfully');
               this.fetchReservations();
-      })
-      .catch(error => {
-        console.error('Error adding reservation: ', error);
+            })
+            .catch(error => {
+              console.error('Error updating reservation: ', error);
+            });
+        });
       });
-    this.railReservationForm.reset();
   }
 
-
+  deleteReservation(name: string) {
+    this.afs.collection('reservations', ref => ref.where('name', '==', name))
+      .get()
+      .subscribe(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          this.afs.collection('reservations').doc(doc.id).delete()
+            .then(() => {
+              console.log('Reservation deleted successfully');
+              this.fetchReservations();
+            })
+            .catch(error => {
+              console.error('Error deleting reservation: ', error);
+            });
+        });
+      });
+  }
 }
